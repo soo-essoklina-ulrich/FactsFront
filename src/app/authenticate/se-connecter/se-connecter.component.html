@@ -1,0 +1,23 @@
+<div class="body">
+  <div class="box">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" >
+      <h2>Sign in</h2>
+      <div class="inputBox">
+        <input type="text" formControlName="username" required />
+        <span>Username</span>
+        <i></i>
+      </div>
+      <div class="inputBox">
+        <input type="password" formControlName="password"  required />
+        <span>Enter password</span>
+        <i></i>
+      </div>
+      <button [disabled]="form.invalid" type="submit">Login</button>
+
+      <div class="links">
+        <a class="forget" href="#">Forgot password?</a>
+        <a class="sign" routerLink="/auth/sinscrire">Sign Up</a>
+      </div>
+    </form>
+  </div>
+</div>

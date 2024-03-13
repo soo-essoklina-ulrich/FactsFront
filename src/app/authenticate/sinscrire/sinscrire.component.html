@@ -1,0 +1,51 @@
+<div id="body">
+  <div class="box">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <h2>Sign Up</h2>
+
+        <div class="inputBox">
+          <input required type="text" formControlName="nom"/>
+          <span>Nom</span>
+          <i></i>
+        </div>
+
+        <div class="inputBox">
+          <input required type="text"  formControlName="prenom"/>
+          <span>Prenom</span>
+          <i></i>
+        </div>
+
+
+      <div class="inputBox">
+        <input required type="email" formControlName="email" />
+        <span>Email</span>
+        <i></i>
+      </div>
+
+      <div class="inputBox">
+        <input required type="number" formControlName="numero" />
+        <span>Numero</span>
+        <i></i>
+      </div>
+
+      <div class="inputBox">
+        <input required type="text" formControlName="username" />
+        <span>Username</span>
+        <i></i>
+      </div>
+
+
+      <div class="inputBox">
+        <input required type="password" formControlName="password"/>
+        <span>Enter password</span>
+        <i></i>
+      </div>
+
+      <button type="submit" [disabled]="form.invalid"> Create </button>
+      <div class="links">
+        <a href="#">Forgot password?</a>
+        <a routerLink="/auth/se-connecter">Sign In</a>
+      </div>
+    </form>
+  </div>
+</div>

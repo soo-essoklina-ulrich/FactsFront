@@ -1,0 +1,22 @@
+<ng-container *ngIf="toggleClassisVisiblee">
+<div class="toggle-sidebar">
+  <app-navbar></app-navbar>
+  <app-sidebar></app-sidebar>
+  <main id="main" class="main" >
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
+</div>
+</ng-container>
+
+<ng-container *ngIf="!toggleClassisVisiblee">
+  <div>
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <main id="main" class="main">
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  </div>
+</ng-container>
+
