@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SinscrireComponent } from './sinscrire.component';
+import {SinscrireComponent} from './sinscrire.component';
 
 describe('SinscrireComponent', () => {
   let component: SinscrireComponent;
@@ -11,7 +11,7 @@ describe('SinscrireComponent', () => {
       declarations: [SinscrireComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(SinscrireComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

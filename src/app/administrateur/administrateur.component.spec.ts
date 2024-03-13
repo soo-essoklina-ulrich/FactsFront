@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdministrateurComponent } from './administrateur.component';
+import {AdministrateurComponent} from './administrateur.component';
 
 describe('AdministrateurComponent', () => {
   let component: AdministrateurComponent;
@@ -11,7 +11,7 @@ describe('AdministrateurComponent', () => {
       declarations: [AdministrateurComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(AdministrateurComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ManagerComponent } from './manager.component';
+import {ManagerComponent} from './manager.component';
 
 describe('ManagerComponent', () => {
   let component: ManagerComponent;
@@ -11,7 +11,7 @@ describe('ManagerComponent', () => {
       declarations: [ManagerComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ManagerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

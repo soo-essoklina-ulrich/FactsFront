@@ -1,13 +1,12 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthenticateComponent } from './authenticate.component';
-import { SeConnecterComponent } from './se-connecter/se-connecter.component';
-import { SinscrireComponent } from './sinscrire/sinscrire.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {SeConnecterComponent} from './se-connecter/se-connecter.component';
+import {SinscrireComponent} from './sinscrire/sinscrire.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'se-connecter', pathMatch: 'full'},
-  { path: 'se-connecter', component: SeConnecterComponent},
-  { path: 'sinscrire', component: SinscrireComponent },
+  {path: '', redirectTo: 'se-connecter', pathMatch: 'full'},
+  {path: 'se-connecter', component: SeConnecterComponent},
+  {path: 'sinscrire', component: SinscrireComponent},
 
 ];
 
@@ -15,4 +14,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthenticateRoutingModule { }
+export class AuthenticateRoutingModule {
+}

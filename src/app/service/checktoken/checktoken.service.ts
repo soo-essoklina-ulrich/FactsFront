@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {DecodeService} from "../decode/decode.service";
 import {NavigateService} from "../navigationmodule/navigate.service";
 import {Router} from "@angular/router";

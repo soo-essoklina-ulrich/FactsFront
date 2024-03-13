@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {FormAuthService} from "../service/Authform/form-auth.service";
 import {InscrireService} from "../service/inscrire/inscrire.service";
-import {Utilisateur} from "../../models/utilisateur/utilisateur";
 import {DecodeService} from "../../service/decode/decode.service";
 import {NavigateService} from "../../service/navigationmodule/navigate.service";
 

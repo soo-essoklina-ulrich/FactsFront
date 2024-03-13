@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ChecktokenService } from './checktoken.service';
+import {ChecktokenService} from './checktoken.service';
 
 describe('ChecktokenService', () => {
   let service: ChecktokenService;

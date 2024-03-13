@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormAuthService } from '../service/Authform/form-auth.service';
-import { FormGroup } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormAuthService} from '../service/Authform/form-auth.service';
+import {FormGroup} from '@angular/forms';
 import {ConnectService} from "../service/connect/connect.service";
 import {DecodeService} from "../../service/decode/decode.service";
 import {NavigateService} from "../../service/navigationmodule/navigate.service";

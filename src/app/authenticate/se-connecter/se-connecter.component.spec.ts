@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SeConnecterComponent } from './se-connecter.component';
+import {SeConnecterComponent} from './se-connecter.component';
 
 describe('SeConnecterComponent', () => {
   let component: SeConnecterComponent;
@@ -11,7 +11,7 @@ describe('SeConnecterComponent', () => {
       declarations: [SeConnecterComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(SeConnecterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

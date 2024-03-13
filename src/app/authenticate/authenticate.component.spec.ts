@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AuthenticateComponent } from './authenticate.component';
+import {AuthenticateComponent} from './authenticate.component';
 
 describe('AuthenticateComponent', () => {
   let component: AuthenticateComponent;
@@ -11,7 +11,7 @@ describe('AuthenticateComponent', () => {
       declarations: [AuthenticateComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(AuthenticateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

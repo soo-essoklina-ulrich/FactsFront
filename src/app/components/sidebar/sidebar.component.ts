@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {ToggleService} from "../service/toggle.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
