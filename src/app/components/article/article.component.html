@@ -1,0 +1,111 @@
+<section class="section">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-header">Article Formulaire</h1>
+
+            <form class="mt-4" (ngSubmit)="createArticle()" [formGroup]="formulaire">
+              <div class="container text-center">
+              <div class="row justify-content-md-center">
+              <fieldset>
+
+                <div class="row">
+
+
+
+                    <div class="col-md-12">
+                      <div class="form-floating">
+                        <input class="form-control" id="floatingName" placeholder="Art. Nom" type="text" formControlName="libelle">
+                        <label for="floatingName">Art. Nom</label>
+                      </div>
+                    </div>
+
+                    <label class="form-label mt-3" for="Prix">Prix unitaire</label>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">CFA</span>
+                      <input class="form-control" id="Prix" type="number" formControlName="prix_unitaire">
+                    </div>
+
+                  </div>
+
+
+              </fieldset>
+
+                  <button class="btn btn-primary" type="submit" [disabled]="formulaire.invalid"> <i class="bi bi-plus"></i> </button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-header">Table D'article</h1>
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Article</th>
+                <th scope="col">Prix unitaire</th>
+                <th scope="col">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of ArtList; let i = index" >
+                <th scope="row">{{i + 1}}</th>
+                <td>{{item.libelle}}</td>
+                <td>{{item.prix_unitaire}}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteArticle(item.id)"> <i class="bi bi-trash"></i> </button>
+                  <button class="btn btn-warning" (click)="findAricletToUpdate(item.id)"> <i class="bi bi-pencil"></i> </button>
+                </td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+  <!-- Vertically centered modal -->
+  <div class="modal fade" id="editArticle"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update {{ArticleToUpadate?.libelle | uppercase}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+          <form (ngSubmit)="editArticle()" [formGroup]="formUpdate" >
+            <div class="modal-body">
+            <div class="mb-3">
+              <label for="libelle_u" class="col-form-label">Nom Article :</label>
+              <input type="text" class="form-control" id="libelle_u" formControlName="libelle" [value]="ArticleToUpadate?.libelle" >
+            </div>
+            <div class="mb-3">
+              <label for="prix_u" class="col-form-label">Prix :</label>
+              <input type="number" class="form-control" id="prix_u" formControlName="prix_unitaire" [valueAsNumber]="ArticleToUpadate?.prix_unitaire">
+            </div>
+
+        </div>
+        <div class="modal-footer">
+
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>

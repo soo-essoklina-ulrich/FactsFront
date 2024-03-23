@@ -1,1 +1,268 @@
-<p>dashboard works!</p>
+<section class="section dashboard">
+  <div class="row">
+
+
+    <!-- Left side columns -->
+    <div class="col-lg-8">
+      <div class="row">
+        <ng-container *ngIf="weatherData">
+          <!-- Weather card -->
+          <div class="col-xxl-8 col-md-6">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title">Temperature</h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-cloud-sun-fill"></i>
+                  </div>
+                  <div class="ps-4 ">
+                    <h6 style="font-size: 17px">{{ weatherData.main.temp }}° <i class="bi bi-thermometer-half"></i></h6>
+                    <h6 style="font-size: 17px">{{ weatherData.main.humidity }} <i class="bi bi-droplet-fill"></i></h6>
+                    <h6 style="font-size: 20px">{{ weatherData.weather[0].description | uppercase }}</h6>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Weather card -->
+        </ng-container>
+
+
+        <!-- Revenue Card -->
+        <div class="col-xxl-4 col-md-6">
+          <div class="card info-card revenue-card">
+
+            <div class="card-body">
+              <h5 class="card-title">Revenue <span>| This Month</span></h5>
+
+              <div class="d-flex align-items-center">
+                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                  <i class="bi bi-currency-dollar"></i>
+                </div>
+                <div class="ps-3">
+                  <h6>$3,264</h6>
+                  <span class="text-success small pt-1 fw-bold">8%</span> <span
+                  class="text-muted small pt-2 ps-1">increase</span>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- End Revenue Card -->
+
+
+
+        <!-- Reports -->
+        <div class="col-12">
+          <div class="card">
+
+
+
+            <div class="card-body">
+              <h5 class="card-title">Reports <span>/Today</span></h5>
+
+              <!-- Line Chart -->
+              <div id="reportsChart"></div>
+
+
+            </div>
+
+          </div>
+        </div><!-- End Reports -->
+
+
+
+        <!-- Top Selling -->
+        <div class="col-12">
+          <div class="card top-selling overflow-auto">
+
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body pb-0">
+              <h5 class="card-title">Top Selling <span>| Today</span></h5>
+
+              <table class="table table-borderless">
+                <thead>
+                <tr>
+                  <th scope="col">Preview</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Sold</th>
+                  <th scope="col">Revenue</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
+                  <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
+                  <td>$64</td>
+                  <td class="fw-bold">124</td>
+                  <td>$5,828</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>
+                  <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
+                  <td>$46</td>
+                  <td class="fw-bold">98</td>
+                  <td>$4,508</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>
+                  <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
+                  <td>$59</td>
+                  <td class="fw-bold">74</td>
+                  <td>$4,366</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>
+                  <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
+                  <td>$32</td>
+                  <td class="fw-bold">63</td>
+                  <td>$2,016</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>
+                  <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
+                  <td>$79</td>
+                  <td class="fw-bold">41</td>
+                  <td>$3,239</td>
+                </tr>
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+        </div><!-- End Top Selling -->
+
+      </div>
+
+    </div><!-- End Left side columns -->
+
+    <!-- Right side columns -->
+    <div class="col-lg-4">
+
+      <!-- To Do List -->
+      <div class="card">
+
+
+        <div class="card-body pb-0">
+          <h5 class="card-title">To Do List <span>| Today</span></h5>
+
+          <div  style="min-height: 300px;">
+            <form (ngSubmit)="addTodo()" [formGroup]="todoForm">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add New Task" formControlName="todo">
+                <button [disabled]="todoForm.invalid" class="btn btn-outline-secondary" type="submit" id="button-addon2">Add</button>
+              </div>
+            </form>
+            <div class="list-group table-bordered">
+              <a *ngIf="TODO_ITEM.length == 0" class="list-group
+              -item list-group-item-action d-flex justify-content-between align-items-center">
+                No Task
+              </a>
+              <a *ngFor="let todo of TODO_ITEM" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <input type="checkbox" [checked]="todo.completed" (click)="completeTodo(todo.todo)"  />
+                <span *ngIf="todo.completed" class="text-decoration-line-through">{{ todo.todo }}</span>
+                <span *ngIf="!todo.completed">{{ todo.todo }}</span>
+                <span class="badge bg-danger rounded-pill" (click)="deleteTodo(todo.todo)"><i class="bi bi-x"></i></span>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+      </div><!-- End To Do List -->
+      <!-- Budget Report -->
+      <div class="card">
+        <div class="filter">
+          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+            <li class="dropdown-header text-start">
+              <h6>Filter</h6>
+            </li>
+
+            <li><a class="dropdown-item" href="#">Today</a></li>
+            <li><a class="dropdown-item" href="#">This Month</a></li>
+            <li><a class="dropdown-item" href="#">This Year</a></li>
+          </ul>
+        </div>
+
+        <div class="card-body pb-0">
+          <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+
+          <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
+                legend: {
+                  data: ['Allocated Budget', 'Actual Spending']
+                },
+                radar: {
+                  // shape: 'circle',
+                  indicator: [{
+                    name: 'Sales',
+                    max: 6500
+                  },
+                    {
+                      name: 'Administration',
+                      max: 16000
+                    },
+                    {
+                      name: 'Information Technology',
+                      max: 30000
+                    },
+                    {
+                      name: 'Customer Support',
+                      max: 38000
+                    },
+                    {
+                      name: 'Development',
+                      max: 52000
+                    },
+                    {
+                      name: 'Marketing',
+                      max: 25000
+                    }
+                  ]
+                },
+                series: [{
+                  name: 'Budget vs spending',
+                  type: 'radar',
+                  data: [{
+                    value: [4200, 3000, 20000, 35000, 50000, 18000],
+                    name: 'Allocated Budget'
+                  },
+                    {
+                      value: [5000, 14000, 28000, 26000, 42000, 21000],
+                      name: 'Actual Spending'
+                    }
+                  ]
+                }]
+              });
+            });
+          </script>
+
+        </div>
+      </div><!-- End Budget Report -->
+
+
+    </div><!-- End Right side columns -->
+
+  </div>
+</section>

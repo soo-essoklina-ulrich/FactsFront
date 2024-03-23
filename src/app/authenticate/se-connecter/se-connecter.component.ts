@@ -47,6 +47,7 @@ export class SeConnecterComponent implements OnInit {
     this.connectservice.connect(this.form.value).subscribe(
       (res) => {
         localStorage.setItem('bearer', res.bearer);
+        localStorage.setItem('refreshToken', res.refreshToken);
         this.navigate.navigate(this.decode.parseJwt(res.bearer).role);
       },
       (error) => {

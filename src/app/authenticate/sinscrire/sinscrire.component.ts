@@ -32,6 +32,7 @@ export class SinscrireComponent implements OnInit{
       this.inscrireservice.save(this.form.value).subscribe(
         (res) => {
           localStorage.setItem('token', res.bearer);
+          localStorage.setItem('refreshToken', res.refreshToken);
           this.navigate.navigate(this.decode.parseJwt(res.bearer).role);
         },
         (error) => {

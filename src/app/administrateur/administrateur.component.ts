@@ -4,6 +4,7 @@ import {ChecktokenService} from "../service/checktoken/checktoken.service";
 import {DecodeService} from "../service/decode/decode.service";
 import {NavigateService} from "../service/navigationmodule/navigate.service";
 import {Router} from "@angular/router";
+import {RefreshtokenService} from "../service/refreshtoken/refreshtoken.service";
 
 @Component({
   selector: 'app-administrateur',
@@ -18,6 +19,7 @@ export class AdministrateurComponent implements OnInit
     private chektoken: ChecktokenService,
     private decode : DecodeService,
     private navigate: NavigateService,
+    private refreshtoken: RefreshtokenService,
     private router: Router
     ) {
   }
@@ -25,7 +27,7 @@ export class AdministrateurComponent implements OnInit
     this.toggleService.toggleSidebarSubject.subscribe(() => {
       this.toggleClass();
     });
-    this.chektoken.chekToken(this.decode, this.navigate, this.router);
+    this.chektoken.chekToken(this.decode, this.navigate, this.router, this.refreshtoken);
   }
 
 
